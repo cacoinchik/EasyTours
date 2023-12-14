@@ -4,8 +4,10 @@
     <head>
         <meta charset="utf-8"/>
         <title>@ViewBag.Title</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     </head>
     <body>
+        @await Html.PartialAsync("NavMenu")
         <div>
             @RenderBody()
         </div>

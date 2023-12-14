@@ -1,3 +1,6 @@
+using EasyTours.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace EasyTours
 {
     public class Program
@@ -7,6 +10,9 @@ namespace EasyTours
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
+
+            string connection = builder.Configuration.GetConnectionString(name: "DefaultConnection");
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connection));
 
             var app = builder.Build();
 
