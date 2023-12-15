@@ -1,0 +1,47 @@
+﻿@model OrderViewModel
+
+<main class="px-3">
+    <h2>Оформление путевки</h2>
+
+    <form method="post" asp-controller="Order" asp-action="Index">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <input type="hidden" asp-for="TourId"/>
+        <input type="hidden" asp-for="Price" />
+
+        <label>Фамилия</label>
+        <input asp-for="Surname"/>
+        <span asp-validation-for="Surname"></span>
+        <br />
+
+        <label>Имя</label>
+        <input asp-for="Name"/>
+        <span asp-validation-for="Name"></span>
+        <br />
+
+        <label>Отчество</label>
+        <input asp-for="Patronymic"/>
+        <span asp-validation-for="Patronymic"></span>
+        <br />
+
+        <label>Возраст</label>
+        <input type="number" asp-for="Age"/>
+        <span asp-validation-for="Age"></span>
+        <br />
+
+        <label>Количество путевок</label>
+        <input type="number" asp-for="Count" />
+        <span asp-validation-for="Count"></span>
+        <br />
+
+        <h3>Дополнительные скидки</h3>
+
+        <label>Дополнительная скидка 10%</label>
+        <input asp-for="IsAddDiscount"/>
+
+        <label>Скидка молодоженам</label>
+        <input asp-for="IsNewlyweds"/>
+
+        <input type="submit" value="Оформить"/>
+    </form>
+</main>

@@ -1,0 +1,29 @@
+﻿@model List<Tour>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Старая цена</th>
+            <th>Цена по акции</th>
+            <th>Курорт</th>
+            <th>Количество</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tour in Model)
+        {
+            if (tour.Discount is null)
+            {
+                continue;
+            }
+            <tr>
+                <td><a asp-controller="Home" asp-action="TourAbout" asp-route-id="@tour.Id">@tour.HotelName</a></td>
+                <td class="text-decoration-line-through">@tour.Price</td>
+                <td>@tour.Discount</td>
+                <td>@tour.ArrivalCountry, @tour.ArrivalPoint</td>
+                <td>@tour.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>

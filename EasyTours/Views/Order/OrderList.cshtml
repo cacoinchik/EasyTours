@@ -1,0 +1,25 @@
+﻿@model List<Order>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Название тура</th>
+            <th>Цена</th>
+            <th>Заказчик</th>
+            <th>Количество</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Tour.HotelName</td>
+                <td>@order.Price</td>
+                <td>@order.Surname @order.Name @order.Patronymic</td>
+                <td>@order.Count</td>
+                <td><a asp-controller="Order" asp-action="OrderDetail" asp-route-id="@order.Id">Подробнее</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

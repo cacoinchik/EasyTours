@@ -1,0 +1,66 @@
+﻿@model Tour
+
+<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5">
+        <main class="px-3">
+            <h1 style="text-align: center">@Model.HotelName</h1>
+            <p class="lead">@Model.Description</p>
+        </main>
+        <main class="px-3">
+            @if(Model.Discount is null)
+            {
+                <h3>@Model.Price рублей</h3>
+                <a class="btn btn-primary" asp-controller="Order" asp-action="Index" asp-route-id="@Model.Id">Купить</a>
+            }
+            else
+            {
+                <h3 class="text-decoration-line-through">@Model.Price рублей</h3> <h3>@Model.Discount рублей</h3>
+                <a class="btn btn-primary" asp-controller="Order" asp-action="Index" asp-route-id="@Model.Id">Купить</a>
+            }
+        </main>
+    </div>
+</div>
+<div class="row align-items-md-stretch">
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h1>Туда</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Даты отпуска</th>
+                        <th>Дата и время вылета</th>
+                        <th>Дата и время прибытия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.StartDate.ToString("d")-@Model.EndDate.ToString("d")</td>
+                        <td>@Model.DepartureStartTime</td>
+                        <td>@Model.DepartureEndTime</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h1>Обратно</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Даты отпуска</th>
+                        <th>Дата и время вылета</th>
+                        <th>Дата и время прибытия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.StartDate.ToString("d")-@Model.EndDate.ToString("d")</td>
+                        <td>@Model.ArrivalStartTime</td>
+                        <td>@Model.ArrivalEndTime</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

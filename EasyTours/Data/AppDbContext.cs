@@ -11,5 +11,6 @@ namespace EasyTours.Data
         }
 
         public DbSet<Tour> Tours { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }
