@@ -73,5 +73,11 @@ namespace EasyTours.Controllers
             }
             return View(model);
         }
+
+        public IActionResult OrderDetail(int id)
+        {
+            var order = db.Orders.Include(x=>x.Tour).FirstOrDefault(x=>x.Id == id);
+            return View(order);
+        }
     }
 }

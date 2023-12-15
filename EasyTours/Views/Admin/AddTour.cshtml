@@ -1,0 +1,82 @@
+﻿@model AddTourViewModel
+
+<main class="px-3">
+    <h2>Информация о туре</h2>
+
+    <form class="lead" method="post" asp-controller="Admin" asp-action="AddTour">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <label>Название отеля</label>
+        <input asp-for="HotelName"/>
+        <span asp-validation-for="HotelName"></span>
+        <br />
+
+         <label>Дата начала</label>
+        <input asp-for="StartDate"/>
+        <span asp-validation-for="StartDate"></span>
+        <br />
+
+         <label>Последний день</label>
+        <input asp-for="EndDate"/>
+        <span asp-validation-for="EndDate"></span>
+        <br />
+
+        <label>Дата и время вылета (отправление)</label>
+        <input asp-for="DepartureStartTime"/>
+        <span asp-validation-for="DepartureStartTime"></span>
+        <br />
+
+        <label>Дата и время прибытия (отправление)</label>
+        <input asp-for="DepartureEndTime" />
+        <span asp-validation-for="DepartureEndTime"></span>
+        <br />
+
+        <label>Дата и время вылета (обратно)</label>
+        <input asp-for="ArrivalStartTime"/>
+        <span asp-validation-for="ArrivalStartTime"></span>
+        <br />
+
+        <label>Дата и время прибытия (обратно)</label>
+        <input asp-for="ArrivalEndTime"/>
+        <span asp-validation-for="ArrivalEndTime"></span>
+        <br />
+
+         <label>Цена</label>
+        <input asp-for="Price"/>
+        <span asp-validation-for="Price"></span>
+        <br />
+
+         <label>Цена со скидкой (для акций)</label>
+        <input asp-for="Discount"/>
+        <span asp-validation-for="Discount"></span>
+        <br />
+
+         <label>Пункт отправления</label>
+        <input asp-for="DeparturePoint"/>
+        <span asp-validation-for="DeparturePoint"></span>
+        <br />
+
+         <label>Страна прибытия</label>
+        <input asp-for="ArrivalCountry"/>
+        <span asp-validation-for="ArrivalCountry"></span>
+        <br />
+
+         <label>Направление</label>
+        <input asp-for="ArrivalPoint"/>
+        <span asp-validation-for="ArrivalPoint"></span>
+        <br />
+
+        <label>Описание</label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+        <br />
+
+        <label>Количество путевок</label>
+        <input asp-for="Count" />
+        <span asp-validation-for="Count"></span>
+        <br />
+
+        <input type="submit" value="Сохранить" class="btn btn-success"/>
+        
+    </form>
+</main>

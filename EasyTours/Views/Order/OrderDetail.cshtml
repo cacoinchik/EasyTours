@@ -1,0 +1,57 @@
+﻿@model Order
+
+<main class="px-3" style="text-align:center">
+
+    <h2>Заказ №@Model.Id @Model.Tour.HotelName</h2>
+
+    <h6>Клиент: @Model.Surname @Model.Name @Model.Patronymic</h6>
+    <h6>Цена тура: @Model.Price рублей</h6>
+    <h6>Откуда: @Model.Tour.DeparturePoint</h6>
+    <h6>Направление: @Model.Tour.ArrivalCountry, @Model.Tour.ArrivalPoint</h6>
+
+</main>
+
+<div class="row align-items-md-stretch">
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h1>Туда</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Даты отпуска</th>
+                        <th>Дата и время вылета</th>
+                        <th>Дата и время прибытия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Tour.StartDate.ToString("d")-@Model.Tour.EndDate.ToString("d")</td>
+                        <td>@Model.Tour.DepartureStartTime</td>
+                        <td>@Model.Tour.DepartureEndTime</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h1>Обратно</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Даты отпуска</th>
+                        <th>Дата и время вылета</th>
+                        <th>Дата и время прибытия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Tour.StartDate.ToString("d")-@Model.Tour.EndDate.ToString("d")</td>
+                        <td>@Model.Tour.ArrivalStartTime</td>
+                        <td>@Model.Tour.ArrivalEndTime</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

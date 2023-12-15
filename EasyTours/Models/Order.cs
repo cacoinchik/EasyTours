@@ -9,7 +9,7 @@
         public byte Age { get; set; }
         public decimal Price { get; set; }
         public int Count { get; set; }
-        public int TourId { get; set; }
-        public virtual Tour Tour { get; set; }
+        public int? TourId { get; set; }
+        public virtual Tour? Tour { get; set; }
     }
 }

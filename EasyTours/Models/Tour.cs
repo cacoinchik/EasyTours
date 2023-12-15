@@ -19,6 +19,6 @@
         public string ArrivalPoint { get; set; }
         public string? Description { get; set; }
         public int Count { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order>? Orders { get; set; }
     }
 }

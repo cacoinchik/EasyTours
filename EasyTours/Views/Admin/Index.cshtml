@@ -1,0 +1,41 @@
+﻿@model List<Tour>
+
+<a class="btn btn-primary" asp-controller="Admin" asp-action="AddTour">Создать</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Дата начала</th>
+            <th>Последний день</th>
+            <th>Количество</th>
+            <th>Отпаврление</th>
+            <th>Направление</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tour in Model)
+        {
+            <tr>
+                <td>@tour.HotelName</td>
+                @if(tour.Discount is null)
+                {
+                    <td>@tour.Price</td>
+
+                }
+                else
+                {
+                    <td>@tour.Discount</td>
+                }
+                <td>@tour.StartDate.ToString("d")</td>
+                <td>@tour.EndDate.ToString("d")</td>
+                <td>@tour.Count</td>
+                <td>@tour.DeparturePoint</td>
+                <td>@tour.ArrivalCountry, @tour.ArrivalPoint</td>
+                <td><a class="btn btn-danger" asp-controller="Admin" asp-action="Delete" asp-route-id="@tour.Id">Удалить</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
